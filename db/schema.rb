@@ -10,9 +10,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_21_141548) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_25_100413) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "checklists", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.string "icon"
+    t.date "start_date"
+    t.date "estimated_end_date"
+    t.bigint "workspace_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["workspace_id"], name: "index_checklists_on_workspace_id"
+  end
+
+  create_table "sections", force: :cascade do |t|
+    t.string "title"
+    t.string "icon"
+    t.bigint "checklist_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["checklist_id"], name: "index_sections_on_checklist_id"
+  end
+
+  create_table "steps", force: :cascade do |t|
+    t.string "title"
+    t.text "details"
+    t.date "estimated_end_date"
+    t.boolean "completed"
+    t.bigint "section_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["section_id"], name: "index_steps_on_section_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -22,8 +54,24 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_21_141548) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.string "avatar"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "workspaces", force: :cascade do |t|
+    t.string "name"
+    t.bigint "owner_id", null: false
+    t.string "icon"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["owner_id"], name: "index_workspaces_on_owner_id"
+  end
+
+  add_foreign_key "checklists", "workspaces"
+  add_foreign_key "sections", "checklists"
+  add_foreign_key "steps", "sections"
+  add_foreign_key "workspaces", "users", column: "owner_id"
 end
