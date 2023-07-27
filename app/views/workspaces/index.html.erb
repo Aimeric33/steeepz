@@ -1,0 +1,7 @@
+<h1>My workspaces</h1>
+
+<% @workspaces.each do |workspace| %>
+  <h2><%= workspace.name %></h2>
+  <%= link_to 'Open', workspace_path(workspace) %>
+  <div>---</div>
+<% end %>
