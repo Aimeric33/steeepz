@@ -3,8 +3,4 @@ class PagesController < ApplicationController
 
   def home
   end
-
-  def dashboard
-    @workspaces = current_user.workspaces
-  end
 end
