@@ -2,15 +2,18 @@ class WorkspacesController < ApplicationController
   before_action :set_workspace, only: %i[show update destroy]
 
   def index
-    @workspaces = current_user.workspaces.all
+    @workspaces = policy_scope(Workspace)
   end
 
   def show
+    authorize @workspace
   end
 
   def create
     @workspace = Workspace.new(workspace_params)
     @workspace.owner = current_user
+    authorize @workspace
+
     if @workspace.save
       redirect_to workspace_path(@workspace)
     else
@@ -19,7 +22,8 @@ class WorkspacesController < ApplicationController
   end
 
   def update
-    @workspace = Workspace.find(params[:id])
+    authorize @workspace
+
     if @workspace.update(workspace_params)
       redirect_to workspace_path(@workspace)
     else
@@ -28,6 +32,8 @@ class WorkspacesController < ApplicationController
   end
 
   def destroy
+    authorize @workspace
+
     @workspace.destroy
     redirect_to workspaces_path
   end
