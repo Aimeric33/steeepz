@@ -2,11 +2,14 @@ class ChecklistsController < ApplicationController
   before_action :set_checklist, only: %i[show edit update destroy]
 
   def show
+    authorize @checklist
   end
 
   def create
     @checklist = Checklist.new(checklist_params)
     @checklist.workspace = Workspace.find(params[:id])
+    authorize @checklist
+
     if @checklist.save
       redirect_to checklist_path(@checklist)
     else
@@ -15,9 +18,12 @@ class ChecklistsController < ApplicationController
   end
 
   def edit
+    authorize @checklist
   end
 
   def update
+    authorize @checklist
+
     if @checklist.update(checklist_params)
       redirect_to checklist_path(@checklist)
     else
@@ -26,6 +32,8 @@ class ChecklistsController < ApplicationController
   end
 
   def destroy
+    authorize @checklist
+
     @checklist.destroy
     redirect_to workspace_path(@checklist.workspace)
   end

@@ -48,11 +48,21 @@ gem "sassc-rails"
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
+# Use Bootstrap for styling
 gem "bootstrap", "~> 5.2"
+
+# Use Devise for authentication
 gem "devise"
+
 gem "autoprefixer-rails"
+
 gem "font-awesome-sass", "~> 6.1"
+
+# Use Simple Form for creating forms
 gem "simple_form", github: "heartcombo/simple_form"
+
+# Use Pundit for authorization
+gem "pundit"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
