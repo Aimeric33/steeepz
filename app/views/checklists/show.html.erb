@@ -1,0 +1,9 @@
+<%= link_to 'Back to my workspace', workspace_path(@checklist.workspace) %>
+
+<h1><%= @checklist.name %></h1>
+<% @checklist.sections.each do |section| %>
+  <h2><%= section.title %></h2>
+  <% section.steps.each do |step| %>
+    <h3><%= step.title %></h3>
+  <% end %>
+<% end %>
