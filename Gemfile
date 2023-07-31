@@ -49,7 +49,7 @@ gem "sassc-rails"
 # gem "image_processing", "~> 1.2"
 
 # Use Bootstrap for styling
-gem "bootstrap", "~> 5.2"
+# gem "bootstrap", "~> 5.2"
 
 # Use Devise for authentication
 gem "devise"

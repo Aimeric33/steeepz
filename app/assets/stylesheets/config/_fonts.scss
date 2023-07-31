@@ -1,16 +1,29 @@
-// Import Google fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
+// Lato Regular
+@font-face {
+  font-family: "Lato";
+  src: font-url('lato-regular.woff2') format('woff2'),
+       font-url('lato-regular.woff') format('woff'),
+       font-url('lato-regular.ttf') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+}
 
-// Define fonts for body and headers
-$body-font: "Work Sans", "Helvetica", "sans-serif";
-$headers-font: "Nunito", "Helvetica", "sans-serif";
+// Lato Bold
+@font-face {
+  font-family: "Lato";
+  src: font-url('lato-bold.woff2') format('woff2'),
+       font-url('lato-bold.woff') format('woff'),
+       font-url('lato-bold.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 700;
+}
 
-// To use a font file (.woff) uncomment following lines
-// @font-face {
-//   font-family: "Font Name";
-//   src: font-url('FontFile.eot');
-//   src: font-url('FontFile.eot?#iefix') format('embedded-opentype'),
-//        font-url('FontFile.woff') format('woff'),
-//        font-url('FontFile.ttf') format('truetype')
-// }
-// $my-font: "Font Name";
+// Lato Black
+@font-face {
+  font-family: "Lato";
+  src: font-url('lato-black.woff2') format('woff2'),
+       font-url('lato-black.woff') format('woff'),
+       font-url('lato-black.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 900;
+}
