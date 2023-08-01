@@ -1,0 +1,25 @@
+<aside class="sidebar__container">
+  <div class="sidebar__user">
+    <img src="https://avatars.githubusercontent.com/u/107474450?v=4" alt="User avatar" class="avatar">
+    <div class="sidebar__user__name"><%= current_user.full_name %></div>
+  </div>
+  <div class="sidebar__block">
+    <div class="sidebar__block__title">Workspaces</div>
+      <% workspaces.each do |workspace| %>
+        <%= link_to workspace.name, workspace_path(workspace), class: "sidebar__block__list-item" %>
+      <% end %>
+  </div>
+  <div class="sidebar__block">
+    <div class="sidebar__block__title">Resources</div>
+      <%= link_to "Get started", "#", class: "sidebar__block__list-item" %>
+      <%= link_to "Help center", "#", class: "sidebar__block__list-item" %>
+      <%= link_to "Templates", "#", class: "sidebar__block__list-item" %>
+      <%= link_to "Contact support", "#", class: "sidebar__block__list-item" %>
+  </div>
+  <div class="sidebar__block">
+    <div class="sidebar__block__title">Product</div>
+      <%= link_to "What's new", "#", class: "sidebar__block__list-item" %>
+      <%= link_to "Roadmap", "#", class: "sidebar__block__list-item" %>
+      <%= link_to "Request features", "#", class: "sidebar__block__list-item" %>
+  </div>
+</aside>
