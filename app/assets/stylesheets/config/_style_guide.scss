@@ -3,7 +3,7 @@ body {
   background-color: white;
   font-family: 'Lato', sans-serif;
   font-size: 1rem;
-  color: black;
+  color: $gray-1200;
   margin: 0;
   padding: 0;
   -webkit-font-smoothing: antialiased;
@@ -49,7 +49,7 @@ p {
 
 // Links
 // a {
-//   color: $purple-500;
+//   color: $gray-1200;
 //   text-decoration: none;
 //   transition: color 0.3s ease-in-out;
 //   &:hover {

@@ -6,9 +6,10 @@
   width: $sidebar-width;
   height: 100dvh;
   overflow-y: auto;
-  background-color: $gray-100;
+  background-color: $gray-300;
   z-index: 100;
   padding-top: 1.5rem;
+  border-right: 1px solid $gray-400;
   transition: transform 0.3s ease-in-out;
 }
 
@@ -41,12 +42,19 @@
 .sidebar__block__list-item {
   display: flex;
   align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
   padding: 0.25rem 1rem;
   font-size: 1rem;
-  text-decoration: none;
-  color: black;
-  transition: color 0.3s ease-in-out;
   &:hover {
-    background-color: $gray-100;
+    background-color: $purple-200;
   }
+  &:visited {
+    color: $gray-1200;
+  }
+}
+
+.sidebar__icon {
+  font-size: 1rem;
+  color: $gray-900;
 }

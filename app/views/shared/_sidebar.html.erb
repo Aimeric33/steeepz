@@ -6,20 +6,40 @@
   <div class="sidebar__block">
     <div class="sidebar__block__title">Workspaces</div>
       <% workspaces.each do |workspace| %>
-        <%= link_to workspace.name, workspace_path(workspace), class: "sidebar__block__list-item" %>
+        <%= link_to workspace_path(workspace), class: "sidebar__block__list-item" do %>
+          <i class='bx bx-caret-right-circle sidebar__icon'></i>
+          <div><%= workspace.name %></div>
+        <% end %>
       <% end %>
   </div>
   <div class="sidebar__block">
     <div class="sidebar__block__title">Resources</div>
-      <%= link_to "Get started", "#", class: "sidebar__block__list-item" %>
-      <%= link_to "Help center", "#", class: "sidebar__block__list-item" %>
-      <%= link_to "Templates", "#", class: "sidebar__block__list-item" %>
-      <%= link_to "Contact support", "#", class: "sidebar__block__list-item" %>
+      <%= link_to "#", class: "sidebar__block__list-item" do %>
+        <i class='bx bx-collection sidebar__icon'></i>
+        <div>Templates</div>
+      <% end %>
+      <%= link_to "#", class: "sidebar__block__list-item" do %>
+        <i class='bx bx-help-circle sidebar__icon' ></i>
+        <div>Help Center</div>
+      <% end %>
+      <%= link_to "#", class: "sidebar__block__list-item" do %>
+        <i class='bx bx-message-rounded sidebar__icon' ></i>
+        <div>Support</div>
+      <% end %>
   </div>
   <div class="sidebar__block">
     <div class="sidebar__block__title">Product</div>
-      <%= link_to "What's new", "#", class: "sidebar__block__list-item" %>
-      <%= link_to "Roadmap", "#", class: "sidebar__block__list-item" %>
-      <%= link_to "Request features", "#", class: "sidebar__block__list-item" %>
+      <%= link_to "#", class: "sidebar__block__list-item" do %>
+        <i class='bx bx-gift sidebar__icon' ></i>
+        <div>What's new</div>
+      <% end %>
+      <%= link_to "#", class: "sidebar__block__list-item" do %>
+        <i class='bx bx-map-alt sidebar__icon' ></i>
+        <div>Roadmap</div>
+      <% end %>
+      <%= link_to "#", class: "sidebar__block__list-item" do %>
+        <i class='bx bx-layer-plus sidebar__icon' ></i>
+        <div>Request features</div>
+      <% end %>
   </div>
 </aside>
