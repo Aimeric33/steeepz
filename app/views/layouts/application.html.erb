@@ -12,8 +12,8 @@
 
   <body>
     <div class="page-wrapper">
-      <%= render "shared/sidebar", workspaces: policy_scope(Workspace) unless @pages_controller %>
-      <%= render "shared/navbar" if @pages_controller %>
+      <%= render "shared/sidebar", workspaces: policy_scope(Workspace) if @show_sidebar %>
+      <%= render "shared/navbar" unless @show_sidebar %>
       <%= yield %>
       <%= render "shared/flashes" %>
     </div>

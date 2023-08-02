@@ -1,5 +1,6 @@
 class WorkspacesController < ApplicationController
   before_action :set_workspace, only: %i[show update destroy]
+  before_action :show_sidebar, only: %i[index show]
 
   def index
     @workspaces = policy_scope(Workspace)
@@ -46,5 +47,9 @@ class WorkspacesController < ApplicationController
 
   def workspace_params
     params.require(:workspace).permit(:name)
+  end
+
+  def show_sidebar
+    @show_sidebar = true
   end
 end
