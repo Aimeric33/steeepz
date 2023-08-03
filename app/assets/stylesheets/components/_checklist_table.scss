@@ -1,0 +1,11 @@
+.ck__table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  border-spacing: 0;
+}
+
+.ck__table th, td {
+  border-bottom: 1px solid $gray-400;
+  padding: 1rem 1rem;
+}
