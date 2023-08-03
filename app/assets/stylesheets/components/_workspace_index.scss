@@ -1,0 +1,26 @@
+.ws__block {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+  border-radius: $border-radius;
+  transition: background-color 0.3s ease-in-out;
+  &:hover {
+    background-color: $purple-200;
+  }
+}
+
+.ws__details {
+  font-size: 0.875rem;
+  color: $gray-900;
+}
+
+.ws__edit {
+  background-color: white;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 10;
+}
