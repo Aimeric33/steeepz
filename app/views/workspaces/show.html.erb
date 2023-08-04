@@ -1,8 +1,23 @@
-<%= link_to 'Back to my workspaces', workspaces_path %>
-
-<h1><%= @workspace.name %></h1>
-<% @workspace.checklists.each do |checklist| %>
-  <h2><%= checklist.name %></h2>
-  <%= link_to 'Open', checklist_path(checklist) %>
-  <div>---</div>
-<% end %>
+<main class="app__container">
+  <header class="app__header">
+    <h1><%= @workspace.name %></h1>
+    <%= link_to '#', class: "button--primary" do %>
+      <i class="bx bx-plus"></i>
+      New checklist
+    <% end %>
+  </header>
+  <div class="app__content">
+    <table class="ck__table">
+      <tr class="ck__header">
+        <th><i class="bx bx-font-family"></i>Name</th>
+        <th><i class='bx bx-user'></i>Creator</th>
+        <th><i class='bx bx-show'></i>Status</th>
+        <th><i class='bx bx-check-double'></i>Completion</th>
+        <th></th>
+      </tr>
+      <% @workspace.checklists.each do |checklist| %>
+        <%= render 'checklists/checklist', checklist: checklist %>
+      <% end %>
+    </table>
+  </div>
+</main>
