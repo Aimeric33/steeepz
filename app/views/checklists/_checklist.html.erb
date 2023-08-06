@@ -1,7 +1,7 @@
 <tr class="ck__row">
-  <td><%= checklist.name %></td>
-  <td>Toto</td>
-  <td>Published</td>
-  <td>5 completed</td>
+  <td class="ck__name"><%= link_to checklist.name, checklist_path(checklist) %></td>
+  <td><div class="ck__status ck__status--published">Published</div></td>
+  <td class="ck__creator">Toto</td>
+  <td class="ck__completion">5 completed</td>
   <td><i class="bx bx-dots-horizontal-rounded"></i></td>
 </tr>

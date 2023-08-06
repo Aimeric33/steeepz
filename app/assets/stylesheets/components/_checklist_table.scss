@@ -8,4 +8,46 @@
 .ck__table th, td {
   border-bottom: 1px solid $gray-400;
   padding: 1rem 1rem;
+  line-height: 0;
+}
+
+.ck__header-col {
+  font-weight: 400;
+  color: $gray-900;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ck__name {
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+.ck__status {
+  align-items: center;
+  display: inline-block;
+  position: relative;
+  border-radius: 100px;
+  padding: 0px 12px 0px 20px;
+	line-height: 1.25rem;
+
+  &:before {
+    border-radius: 50%;
+    content: '';
+    height: 10px;
+    left: 6px;
+    margin-top: -5px;
+    position: absolute;
+    top: 50%;
+    width: 10px;
+  }
+}
+
+.ck__status--published {
+  background: #b4eda0;
+}
+.ck__status--published:before {
+  background: #6BC167;
 }
