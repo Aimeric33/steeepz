@@ -9,10 +9,10 @@
   <div class="app__content">
     <table class="ck__table">
       <tr class="ck__header">
-        <th><i class="bx bx-font-family"></i>Name</th>
-        <th><i class='bx bx-user'></i>Creator</th>
-        <th><i class='bx bx-show'></i>Status</th>
-        <th><i class='bx bx-check-double'></i>Completion</th>
+        <th><div class="ck__header-col "><i class="bx bx-font-family"></i>Name</div></th>
+        <th><div class="ck__header-col "><i class='bx bx-show'></i>Status</div></th>
+        <th><div class="ck__header-col"><i class='bx bx-user'></i>Creator</div></th>
+        <th><div class="ck__header-col"><i class='bx bx-check-double'></i>Completion</div></th>
         <th></th>
       </tr>
       <% @workspace.checklists.each do |checklist| %>
