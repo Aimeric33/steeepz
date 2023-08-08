@@ -1,9 +1,17 @@
-<%= link_to 'Back to my workspace', workspace_path(@checklist.workspace) %>
-
-<h1><%= @checklist.name %></h1>
-<% @checklist.sections.each do |section| %>
-  <h2><%= section.title %></h2>
-  <% section.steps.each do |step| %>
-    <h3><%= step.title %></h3>
-  <% end %>
-<% end %>
+<main class="app__container">
+  <header class="app__header">
+    <h1><%= @checklist.name %></h1>
+    <%= link_to edit_checklist_path(@checklist), class: "button--primary" do %>
+      <i class="bx bx-edit"></i>
+      Edit
+    <% end %>
+  </header>
+  <div class="app__content">
+    <div class="tabs">
+      <%= link_to "Completion", "#", class: "tabs__link tabs__link--active" %>
+      <%= link_to "Share", "#", class: "tabs__link" %>
+      <%= link_to "Settings", "#", class: "tabs__link" %>
+      <%= link_to "Integrations", "#", class: "tabs__link" %>
+    </div>
+  </div>
+</main>

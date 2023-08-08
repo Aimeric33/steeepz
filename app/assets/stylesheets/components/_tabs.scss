@@ -1,0 +1,23 @@
+.tabs {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1.75rem;
+  border-bottom: 1px solid $gray-400;
+}
+
+.tabs__link {
+  font-weight: 700;
+  padding: 0.5rem 0;
+  transition: background-color 0.3s ease-in-out;
+  border-bottom: 2px solid transparent;
+  &:hover {
+    border-bottom: 2px solid $purple-800;
+  }
+}
+
+.tabs__link--active {
+  color: $purple-800;
+  border-bottom: 2px solid $purple-800;
+}
