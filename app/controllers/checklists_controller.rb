@@ -1,6 +1,6 @@
 class ChecklistsController < ApplicationController
   before_action :set_checklist, only: %i[show edit update destroy]
-  before_action :show_sidebar, only: %i[show edit]
+  before_action :show_sidebar, only: %i[show]
 
   def show
     authorize @checklist
