@@ -1,0 +1,25 @@
+<header class="edit__header">
+  <div>
+    <%= link_to :back, class: 'button--secondary' do %>
+    <i class="bx bx-left-arrow-alt"></i>
+    Leave editor
+    <% end %>
+  </div>
+  <div class="actions__list">
+    <div class="actions_item">New section</div>
+    <div class="actions_item">New task</div>
+    <div class="actions_item">Preview</div>
+    <div class="actions_item">Other action</div>
+  </div>
+  <div>
+    <%= link_to "Publish", "#", class: "button--primary" %>
+  </div>
+</header>
+<main class="edit__main">
+  <div>
+    <h1><%= @checklist.name %></h1>
+    <% @checklist.sections.each do |section| %>
+      <h2><%= section.title %></h2>
+    <% end %>
+  </div>
+</main>
