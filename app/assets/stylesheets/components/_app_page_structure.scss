@@ -1,4 +1,5 @@
-// Containers
+// App page structure //
+
 .app__container {
   display: flex;
   flex-direction: column;
@@ -6,7 +7,6 @@
   padding: 1.5rem 2.5rem 1.5rem calc(#{$sidebar-width} + 2.5rem);
 }
 
-// Header
 .app__header {
   display: flex;
   align-items: center;
@@ -18,4 +18,35 @@
 
 .app__content {
   width: 100%;
+}
+
+// --------------------//
+// Edit page structure //
+
+.edit__header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  box-sizing: border-box;
+  width: 100vw;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 2rem;
+  border-bottom: 1px solid $gray-400;
+}
+
+.actions__list {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.edit__main {
+  margin-top: 8rem;
+  display: flex;
+  justify-content: center;
 }
