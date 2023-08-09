@@ -1,25 +1,51 @@
 <header class="edit__header">
-  <div>
-    <%= link_to :back, class: 'button--secondary' do %>
-    <i class="bx bx-left-arrow-alt"></i>
-    Leave editor
-    <% end %>
-  </div>
-  <div class="actions__list">
-    <div class="actions_item">New section</div>
-    <div class="actions_item">New task</div>
-    <div class="actions_item">Preview</div>
-    <div class="actions_item">Other action</div>
-  </div>
-  <div>
-    <%= link_to "Publish", "#", class: "button--primary" %>
-  </div>
+  <%= render "edit_header", checklist: @checklist %>
 </header>
 <main class="edit__main">
-  <div>
-    <h1><%= @checklist.name %></h1>
-    <% @checklist.sections.each do |section| %>
-      <h2><%= section.title %></h2>
-    <% end %>
+  <div class="checklist">
+    <div class="checklist__header">
+      <h1><%= @checklist.name %></h1>
+      <div class="checklist__dates">
+        <div class="checklist__date">
+          <i class="bx bx-play-circle"></i>
+          <div>Start on : <%= @checklist.start_date.strftime('%d/%m/%Y') %></div>
+        </div>
+        <div class="checklist__date">
+          <i class="bx bx-stop-circle"></i>
+          <div>Target on : <%= @checklist.estimated_end_date.strftime('%d/%m/%Y') %></div>
+        </div>
+      </div>
+      <div class="checklist__description">
+        <%= @checklist.description %>
+      </div>
+    </div>
+    <div class="checklist__content">
+      <% @checklist.sections.each do |section| %>
+        <div class="checklist__section">
+          <div class="checklist__section-title">
+            <h2><%= section.title %></h2>
+            <div class="checklist__section-title__count">
+              0 / <%= section.steps.count %> steps
+            </div>
+          </div>
+          <div class="checklist__steps">
+            <% section.steps.each do |step| %>
+              <div class="checklist__step">
+                <div class="checklist__step__title">
+                  <i class="bx bx-circle"></i>
+                  <h3><%= step.title %></h3>
+                </div>
+                <div class="checklist__step__tags">
+                  <div class="checklist__step__tag">
+                    <i class="bx bx-calendar-event"></i>
+                    <div><%= step.estimated_end_date.strftime("%d/%m/%Y") if step.estimated_end_date %></div>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
 </main>
