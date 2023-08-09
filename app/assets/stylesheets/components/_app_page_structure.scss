@@ -32,6 +32,7 @@
   box-sizing: border-box;
   width: 100vw;
   height: 4rem;
+  background-color: white;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -46,7 +47,8 @@
 }
 
 .edit__main {
-  margin-top: 8rem;
   display: flex;
   justify-content: center;
+  margin-top: 8rem;
+  margin-bottom: 4rem;
 }
