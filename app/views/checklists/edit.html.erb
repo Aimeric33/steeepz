@@ -4,18 +4,22 @@
 <main class="edit__main">
   <div class="checklist">
     <div class="checklist__header">
-      <h1><%= @checklist.name %></h1>
+      <h1 contenteditable="true"><%= @checklist.name %></h1>
       <div class="checklist__dates">
         <div class="checklist__date">
           <i class="bx bx-play-circle"></i>
-          <div>Start on : <%= @checklist.start_date.strftime('%d/%m/%Y') %></div>
+          <div>Start on :
+            <div contenteditable="true"><%= @checklist.start_date.strftime('%d/%m/%Y')%></div>
+          </div>
         </div>
         <div class="checklist__date">
           <i class="bx bx-stop-circle"></i>
-          <div>Target on : <%= @checklist.estimated_end_date.strftime('%d/%m/%Y') %></div>
+          <div>Target on :
+            <div contenteditable="true"><%= @checklist.estimated_end_date.strftime('%d/%m/%Y') %></div>
+          </div>
         </div>
       </div>
-      <div class="checklist__description">
+      <div class="checklist__description" contenteditable="true">
         <%= @checklist.description %>
       </div>
     </div>
