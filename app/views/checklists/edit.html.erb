@@ -2,9 +2,15 @@
   <%= render "edit_header", checklist: @checklist %>
 </header>
 <main class="edit__main">
-  <div class="checklist">
+  <div class="checklist" data-controller="editing">
     <div class="checklist__header">
-      <h1 contenteditable="true"><%= @checklist.name %></h1>
+      <h1 contenteditable="true"
+          data-checklist-id="<%= @checklist.id %>"
+          data-editing-target="checklistData"
+          data-action="focusout->editing#saveChecklist"
+          data-type="name">
+        <%= @checklist.name %>
+      </h1>
       <div class="checklist__dates">
         <div class="checklist__date">
           <i class="bx bx-play-circle"></i>

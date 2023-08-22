@@ -26,9 +26,9 @@ class ChecklistsController < ApplicationController
     authorize @checklist
 
     if @checklist.update(checklist_params)
-      redirect_to checklist_path(@checklist)
+      render :edit, status: :ok
     else
-      render :show, status: :unprocessable_entity
+      render :edit, status: :unprocessable_entity
     end
   end
 
