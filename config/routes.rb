@@ -4,6 +4,6 @@ Rails.application.routes.draw do
 
   resources :workspaces, only: %i[index show create update destroy]
   resources :checklists, only: %i[show create edit update destroy]
-  # resource :sections, only: %i[create update destroy]
-  # resource :steps, only: %i[create edit update destroy]
+  resources :sections, only: %i[create update destroy]
+  # resources :steps, only: %i[create edit update destroy]
 end

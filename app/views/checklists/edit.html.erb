@@ -2,15 +2,17 @@
   <%= render "edit_header", checklist: @checklist %>
 </header>
 <main class="edit__main">
-  <div class="checklist" data-controller="editing">
+  <div class="checklist">
     <div class="checklist__header">
-      <h1 contenteditable="true"
+      <div contenteditable="true"
+          placeholder="Checklist name"
+          data-controller="editing"
           data-checklist-id="<%= @checklist.id %>"
           data-editing-target="checklistData"
           data-action="focusout->editing#saveChecklist"
           data-type="name">
         <%= @checklist.name %>
-      </h1>
+      </div>
       <div class="checklist__dates">
         <div class="checklist__date">
           <i class="bx bx-play-circle"></i>
@@ -25,7 +27,13 @@
           </div>
         </div>
       </div>
-      <div class="checklist__description" contenteditable="true">
+      <div class="checklist__description"
+           contenteditable="true"
+           data-controller="editing"
+           data-checklist-id="<%= @checklist.id %>"
+           data-editing-target="checklistData"
+           data-action="focusout->editing#saveChecklist"
+           data-type="description">
         <%= @checklist.description %>
       </div>
     </div>
@@ -33,7 +41,14 @@
       <% @checklist.sections.each do |section| %>
         <div class="checklist__section">
           <div class="checklist__section-title">
-            <h2><%= section.title %></h2>
+            <div contenteditable="true"
+                data-controller="editing"
+                data-section-id="<%= section.id %>"
+                data-editing-target="sectionData"
+                data-action="focusout->editing#saveSection"
+                data-type="title">
+              <%= section.title %>
+            </div>
             <div class="checklist__section-title__count">
               0 / <%= section.steps.count %> steps
             </div>
@@ -43,7 +58,13 @@
               <div class="checklist__step">
                 <div class="checklist__step__title">
                   <i class="bx bx-circle"></i>
-                  <h3><%= step.title %></h3>
+                  <div data-controller="editing"
+                      data-step-id="<%= step.id %>"
+                      data-editing-target="stepData"
+                      data-action="focusout->editing#saveStep"
+                      data-type="title">
+                    <%= step.title %>
+                  </div>
                 </div>
                 <div class="checklist__step__tags">
                   <div class="checklist__step__tag">
