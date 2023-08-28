@@ -5,12 +5,12 @@
   <div class="checklist">
     <div class="checklist__header">
       <div contenteditable="true"
-          placeholder="Checklist name"
-          data-controller="editing"
-          data-checklist-id="<%= @checklist.id %>"
-          data-editing-target="checklistData"
-          data-action="focusout->editing#saveChecklist"
-          data-type="name">
+           data-controller="editing"
+           data-editing-target="item"
+           data-action="focusout->editing#save"
+           data-id="<%= @checklist.id %>"
+           data-route="checklists"
+           data-type="name">
         <%= @checklist.name %>
       </div>
       <div class="checklist__dates">
@@ -30,9 +30,10 @@
       <div class="checklist__description"
            contenteditable="true"
            data-controller="editing"
-           data-checklist-id="<%= @checklist.id %>"
-           data-editing-target="checklistData"
-           data-action="focusout->editing#saveChecklist"
+           data-editing-target="item"
+           data-action="focusout->editing#save"
+           data-id="<%= @checklist.id %>"
+           data-route="checklists"
            data-type="description">
         <%= @checklist.description %>
       </div>
@@ -42,11 +43,12 @@
         <div class="checklist__section">
           <div class="checklist__section-title">
             <div contenteditable="true"
-                data-controller="editing"
-                data-section-id="<%= section.id %>"
-                data-editing-target="sectionData"
-                data-action="focusout->editing#saveSection"
-                data-type="title">
+                 data-controller="editing"
+                 data-editing-target="item"
+                 data-action="focusout->editing#save"
+                 data-id="<%= section.id %>"
+                 data-route="sections"
+                 data-type="title">
               <%= section.title %>
             </div>
             <div class="checklist__section-title__count">
@@ -58,20 +60,24 @@
               <div class="checklist__step">
                 <div class="checklist__step__title">
                   <i class="bx bx-circle"></i>
-                  <div data-controller="editing"
-                      data-step-id="<%= step.id %>"
-                      data-editing-target="stepData"
-                      data-action="focusout->editing#saveStep"
-                      data-type="title">
+                  <div contenteditable="true"
+                       data-controller="editing"
+                       data-editing-target="item"
+                       data-action="focusout->editing#save"
+                       data-id="<%= step.id %>"
+                       data-route="steps"
+                       data-type="title">
                     <%= step.title %>
                   </div>
                 </div>
+                <!--
                 <div class="checklist__step__tags">
                   <div class="checklist__step__tag">
                     <i class="bx bx-calendar-event"></i>
                     <div><%= step.estimated_end_date.strftime("%d/%m/%Y") if step.estimated_end_date %></div>
                   </div>
                 </div>
+                -->
               </div>
             <% end %>
           </div>
