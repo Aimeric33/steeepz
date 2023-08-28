@@ -4,37 +4,48 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
+
+  div[contenteditable="true"] {
+    outline: none;
+  }
 }
 
 .checklist__header {
   padding: 1rem 1.5rem;
   border-radius: $border-radius;
   border: 1px solid $gray-400;
-}
 
-.checklist__dates {
-  margin-top: 1rem;
-  display: flex;
-  gap: 1.5rem;
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-}
+  .checklist__name {
+    font-size: 2rem;
+    font-weight: 900;
+    line-height: 1.2;
+  }
 
-.checklist__date {
-  display: flex;
-  align-items: center;
-  gap: 0.25rem;
-}
+  .checklist__dates {
+    margin-top: 1rem;
+    display: flex;
+    gap: 1.5rem;
+    font-size: 0.875rem;
+    // font-weight: 700;
+    // text-transform: uppercase;
 
-.checklist__description {
-  margin-top: 1rem;
+    .checklist__date {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 0.25rem;
+    }
+  }
+
+  .checklist__description {
+    margin-top: 1rem;
+  }
 }
 
 .checklist__content {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
 }
 
 .checklist__section {
@@ -42,21 +53,27 @@
   flex-direction: column;
   padding: 1rem 1.5rem;
   border-radius: $border-radius;
-  border: 1px solid $gray-400;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+
+  .checklist__section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+
+    .checklist__section-header__title {
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    .checklist__section-header__count {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+  }
 }
 
-.checklist__section-title {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 1rem;
-}
-
-.checklist__section-title__count {
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-}
 
 .checklist__steps {
   display: flex;
@@ -68,15 +85,23 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-}
 
-.checklist__step__title {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+  .checklist__step-main {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 
-  h3 {
-    font-weight: 400;
+    .checklist__step-main__icon {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: 2px dashed $gray-500;
+    }
+
+    .checklist__step-main__title {
+      font-size: 1rem;
+      font-weight: 400;
+    }
   }
 }
 
@@ -84,16 +109,16 @@
   display: flex;
   gap: 0.5rem;
   margin-left: 1.5rem;
-}
 
-.checklist__step__tag {
-  display: flex;
-  align-items: center;
-  gap: 0.25rem;
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  padding: 0.25rem 0.5rem;
-  border-radius: $border-radius;
-  background-color: $gray-300;
+  .checklist__step__tag {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 0.25rem 0.5rem;
+    border-radius: $border-radius;
+    background-color: $gray-300;
+  }
 }

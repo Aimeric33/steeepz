@@ -4,43 +4,83 @@
 <main class="edit__main">
   <div class="checklist">
     <div class="checklist__header">
-      <h1><%= @checklist.name %></h1>
+      <div class="checklist__name"
+           contenteditable="true"
+           data-controller="editing"
+           data-editing-target="item"
+           data-action="focusout->editing#save"
+           data-id="<%= @checklist.id %>"
+           data-route="checklists"
+           data-type="name">
+        <%= @checklist.name %>
+      </div>
       <div class="checklist__dates">
         <div class="checklist__date">
           <i class="bx bx-play-circle"></i>
-          <div>Start on : <%= @checklist.start_date.strftime('%d/%m/%Y') %></div>
+          <div>
+            Start on : <%= @checklist.start_date.strftime('%d/%m/%Y')%>
+          </div>
         </div>
         <div class="checklist__date">
           <i class="bx bx-stop-circle"></i>
-          <div>Target on : <%= @checklist.estimated_end_date.strftime('%d/%m/%Y') %></div>
+          <div>
+            Target on : <%= @checklist.estimated_end_date.strftime('%d/%m/%Y') %>
+          </div>
         </div>
       </div>
-      <div class="checklist__description">
+      <div class="checklist__description"
+           contenteditable="true"
+           data-controller="editing"
+           data-editing-target="item"
+           data-action="focusout->editing#save"
+           data-id="<%= @checklist.id %>"
+           data-route="checklists"
+           data-type="description">
         <%= @checklist.description %>
       </div>
     </div>
     <div class="checklist__content">
       <% @checklist.sections.each do |section| %>
         <div class="checklist__section">
-          <div class="checklist__section-title">
-            <h2><%= section.title %></h2>
-            <div class="checklist__section-title__count">
+          <div class="checklist__section-header">
+            <div class="checklist__section-header__title"
+                 contenteditable="true"
+                 data-controller="editing"
+                 data-editing-target="item"
+                 data-action="focusout->editing#save"
+                 data-id="<%= section.id %>"
+                 data-route="sections"
+                 data-type="title">
+              <%= section.title %>
+            </div>
+            <div class="checklist__section-header__count">
               0 / <%= section.steps.count %> steps
             </div>
           </div>
           <div class="checklist__steps">
             <% section.steps.each do |step| %>
               <div class="checklist__step">
-                <div class="checklist__step__title">
-                  <i class="bx bx-circle"></i>
-                  <h3><%= step.title %></h3>
+                <div class="checklist__step-main">
+                  <div class="checklist__step-main__icon"></div>
+                  <div class="checklist__step-main__title"
+                       contenteditable="true"
+                       data-controller="editing"
+                       data-editing-target="item"
+                       data-action="focusout->editing#save"
+                       data-id="<%= step.id %>"
+                       data-route="steps"
+                       data-type="title">
+                    <%= step.title %>
+                  </div>
                 </div>
+                <!--
                 <div class="checklist__step__tags">
                   <div class="checklist__step__tag">
                     <i class="bx bx-calendar-event"></i>
                     <div><%= step.estimated_end_date.strftime("%d/%m/%Y") if step.estimated_end_date %></div>
                   </div>
                 </div>
+                -->
               </div>
             <% end %>
           </div>
