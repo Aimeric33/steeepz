@@ -4,7 +4,8 @@
 <main class="edit__main">
   <div class="checklist">
     <div class="checklist__header">
-      <div contenteditable="true"
+      <div class="checklist__name"
+           contenteditable="true"
            data-controller="editing"
            data-editing-target="item"
            data-action="focusout->editing#save"
@@ -16,14 +17,14 @@
       <div class="checklist__dates">
         <div class="checklist__date">
           <i class="bx bx-play-circle"></i>
-          <div>Start on :
-            <div contenteditable="true"><%= @checklist.start_date.strftime('%d/%m/%Y')%></div>
+          <div>
+            Start on : <%= @checklist.start_date.strftime('%d/%m/%Y')%>
           </div>
         </div>
         <div class="checklist__date">
           <i class="bx bx-stop-circle"></i>
-          <div>Target on :
-            <div contenteditable="true"><%= @checklist.estimated_end_date.strftime('%d/%m/%Y') %></div>
+          <div>
+            Target on : <%= @checklist.estimated_end_date.strftime('%d/%m/%Y') %>
           </div>
         </div>
       </div>
@@ -41,8 +42,9 @@
     <div class="checklist__content">
       <% @checklist.sections.each do |section| %>
         <div class="checklist__section">
-          <div class="checklist__section-title">
-            <div contenteditable="true"
+          <div class="checklist__section-header">
+            <div class="checklist__section-header__title"
+                 contenteditable="true"
                  data-controller="editing"
                  data-editing-target="item"
                  data-action="focusout->editing#save"
@@ -51,16 +53,17 @@
                  data-type="title">
               <%= section.title %>
             </div>
-            <div class="checklist__section-title__count">
+            <div class="checklist__section-header__count">
               0 / <%= section.steps.count %> steps
             </div>
           </div>
           <div class="checklist__steps">
             <% section.steps.each do |step| %>
               <div class="checklist__step">
-                <div class="checklist__step__title">
-                  <i class="bx bx-circle"></i>
-                  <div contenteditable="true"
+                <div class="checklist__step-main">
+                  <div class="checklist__step-main__icon"></div>
+                  <div class="checklist__step-main__title"
+                       contenteditable="true"
                        data-controller="editing"
                        data-editing-target="item"
                        data-action="focusout->editing#save"
