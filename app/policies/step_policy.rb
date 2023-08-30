@@ -1,14 +1,14 @@
-class SectionPolicy < ApplicationPolicy
+class StepPolicy < ApplicationPolicy
   def create?
-    record.checklist.workspace.owner == user
+    record.section.checklist.workspace.owner == user
   end
 
   def update?
-    record.checklist.workspace.owner == user
+    record.section.checklist.workspace.owner == user
   end
 
   def destroy?
-    record.checklist.workspace.owner == user
+    record.section.checklist.workspace.owner == user
   end
 
   class Scope < Scope
