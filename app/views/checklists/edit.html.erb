@@ -57,9 +57,13 @@
               0 / <%= section.steps.count %> steps
             </div>
           </div>
-          <div class="checklist__steps">
-            <% section.steps.each do |step| %>
-              <div class="checklist__step">
+          <div class="checklist__steps" data-controller="drag" data-route="/steps">
+            <% section.steps.order(position: :asc).each do |step| %>
+              <div class="checklist__step" data-id="<%= step.id %>">
+                <div class="checklist__step-commands">
+                  <div class="checklist__step-command"><i class='bx bx-trash'></i></div>
+                  <div class="checklist__step-command"><i class='bx bx-move-vertical'></i></div>
+                </div>
                 <div class="checklist__step-main">
                   <div class="checklist__step-main__icon"></div>
                   <div class="checklist__step-main__title"

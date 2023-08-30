@@ -24,7 +24,7 @@ class StepsController < ApplicationController
   private
 
   def step_params
-    params.require(:step).permit(:title)
+    params.require(:step).permit(:title, :position)
   end
 
   def set_step
