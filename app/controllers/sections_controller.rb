@@ -24,7 +24,7 @@ class SectionsController < ApplicationController
   private
 
   def section_params
-    params.require(:section).permit(:title)
+    params.require(:section).permit(:title, :position)
   end
 
   def set_section
