@@ -1,0 +1,51 @@
+.button--primary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  background-color: $purple-800;
+  border: none;
+  border-radius: $border-radius;
+  color: white;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.4;
+  padding: 0.5rem 0.75rem;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease-in-out;
+  &:hover {
+    background-color: darken($purple-800, 10%);
+  }
+}
+
+.button--secondary {
+  border: 1px solid $purple-800;
+  border-radius: $border-radius;
+  color: $purple-800;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.4;
+  padding: 0.5rem 0.75rem;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.add-button {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  width: fit-content;
+  padding: 0.5rem 0.75rem;
+  border-radius: $border-radius;
+  background-color: $gray-300;
+  line-height: 1;
+  cursor: pointer;
+
+  i {
+    font-size: 1.25rem;
+  }
+}

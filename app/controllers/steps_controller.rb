@@ -4,9 +4,12 @@ class StepsController < ApplicationController
   def create
     @section = Section.find(params[:section_id])
     @step = @section.steps.new(step_params)
+    @step.position = @section.steps.count + 1
     authorize @step
 
-    @step.save
+    respond_to do |format|
+      format.json if @step.save
+    end
   end
 
   def update

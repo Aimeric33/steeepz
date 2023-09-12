@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="editing"
 export default class extends Controller {
-  static targets = [ "item" ]
+  static targets = [ "item", "button" ]
 
   save() {
     const newText = this.itemTarget.innerText
@@ -18,5 +18,32 @@ export default class extends Controller {
       },
       body: JSON.stringify({ [itemType]: newText }),
     })
+  }
+
+  add() {
+    const newItem = this.buttonTarget.dataset.newItem
+    const parentId = this.buttonTarget.dataset.parentId
+    let route = ""
+
+    if (newItem === "step") {
+      route = `/sections/${parentId}/steps`
+    } else if (newItem === "section") {
+      route = `/checklists/${parentId}/sections`
+    }
+
+    fetch(route, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-CSRF-Token': document.querySelector('meta[name=csrf-token]').getAttribute('content')
+      },
+      body: JSON.stringify({ title: `New ${newItem}` }),
+    })
+      .then(response => response.json())
+      .then((data) => {
+        if (data.inserted_item) {
+          this.buttonTarget.insertAdjacentHTML('beforebegin', data.inserted_item)
+        }
+      })
   }
 }

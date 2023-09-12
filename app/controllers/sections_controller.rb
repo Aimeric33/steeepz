@@ -2,11 +2,14 @@ class SectionsController < ApplicationController
   before_action :set_section, only: %i[update destroy]
 
   def create
-    @checklist = Checklist.find(params[:id])
+    @checklist = Checklist.find(params[:checklist_id])
     @section = @checklist.sections.new(section_params)
+    @section.position = @checklist.sections.count + 1
     authorize @section
 
-    @section.save
+    respond_to do |format|
+      format.json if @section.save
+    end
   end
 
   def update

@@ -3,8 +3,10 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   resources :workspaces, only: %i[index show create update destroy]
-  resources :checklists, only: %i[show create edit update destroy]
-  resources :sections, only: %i[create update destroy] do
+  resources :checklists, only: %i[show create edit update destroy] do
+    resources :sections, only: %i[create]
+  end
+  resources :sections, only: %i[update destroy] do
     resources :steps, only: %i[create]
   end
   resources :steps, only: %i[update destroy]
