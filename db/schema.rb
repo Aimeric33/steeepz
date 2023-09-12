@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_30_092345) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_31_113800) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -27,7 +27,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_30_092345) do
   end
 
   create_table "sections", force: :cascade do |t|
-    t.string "title"
+    t.string "title", default: "Section title"
     t.string "icon"
     t.bigint "checklist_id", null: false
     t.datetime "created_at", null: false
@@ -37,7 +37,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_30_092345) do
   end
 
   create_table "steps", force: :cascade do |t|
-    t.string "title"
+    t.string "title", default: "Step title"
     t.text "details"
     t.date "estimated_end_date"
     t.boolean "completed"

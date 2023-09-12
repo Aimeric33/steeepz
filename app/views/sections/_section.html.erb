@@ -1,0 +1,35 @@
+<div class="checklist__section" data-id="<%= section.id %>">
+  <div class="checklist__section-header">
+    <div class="checklist__section-commands">
+      <div class="checklist__section-command"><i class='bx bx-trash'></i></div>
+      <div class="checklist__section-command"><i class='bx bx-move-vertical'></i></div>
+    </div>
+    <div class="checklist__section-header__title"
+        contenteditable="true"
+        data-controller="editing"
+        data-editing-target="item"
+        data-action="focusout->editing#save"
+        data-id="<%= section.id %>"
+        data-route="sections"
+        data-type="title">
+      <%= section.title %>
+    </div>
+    <div class="checklist__section-header__count">
+      0 / <%= section.steps.count %> steps
+    </div>
+  </div>
+  <div class="checklist__steps" data-controller="drag" data-route="/steps">
+    <% section.steps.order(position: :asc).each do |step| %>
+      <%= render "steps/step", step: step %>
+    <% end %>
+    <div class="add-button"
+        data-controller="editing"
+        data-editing-target="button"
+        data-action="click->editing#add"
+        data-parent-id="<%= section.id %>"
+        data-new-item="step">
+      <i class='bx bx-plus'></i>
+      <div>Add a new step</div>
+    </div>
+  </div>
+</div>
