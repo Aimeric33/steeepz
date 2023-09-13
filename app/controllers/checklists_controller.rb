@@ -7,8 +7,8 @@ class ChecklistsController < ApplicationController
   end
 
   def create
-    @checklist = Checklist.new(checklist_params)
-    @checklist.workspace = Workspace.find(params[:id])
+    @checklist = Checklist.new
+    @checklist.workspace = Workspace.find(params[:workspace_id])
     authorize @checklist
 
     if @checklist.save

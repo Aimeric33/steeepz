@@ -1,7 +1,7 @@
 <main class="app__container">
   <header class="app__header">
     <h1><%= @workspace.name %></h1>
-    <%= link_to '#', class: "button--primary" do %>
+    <%= button_to workspace_checklists_path(@workspace), class: "button--primary" do %>
       <i class="bx bx-plus"></i>
       New checklist
     <% end %>
