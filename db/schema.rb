@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_31_113800) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_13_095656) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "checklists", force: :cascade do |t|
-    t.string "name"
-    t.text "description"
+    t.string "name", default: "New checklist"
+    t.text "description", default: "This is the description of the checklist"
     t.string "icon"
     t.date "start_date"
     t.date "estimated_end_date"
@@ -64,7 +64,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_31_113800) do
   end
 
   create_table "workspaces", force: :cascade do |t|
-    t.string "name"
+    t.string "name", default: "New workspace"
     t.bigint "owner_id", null: false
     t.string "icon"
     t.datetime "created_at", null: false
