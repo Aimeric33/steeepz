@@ -18,13 +18,13 @@
         <div class="checklist__date">
           <i class="bx bx-play-circle"></i>
           <div>
-            Start on : <%= @checklist.start_date.strftime('%d/%m/%Y')%>
+            Start on : <%= @checklist.start_date.strftime('%d/%m/%Y') if @checklist.start_date %>
           </div>
         </div>
         <div class="checklist__date">
           <i class="bx bx-stop-circle"></i>
           <div>
-            Target on : <%= @checklist.estimated_end_date.strftime('%d/%m/%Y') %>
+            Target on : <%= @checklist.estimated_end_date.strftime('%d/%m/%Y') if @checklist.estimated_end_date %>
           </div>
         </div>
       </div>

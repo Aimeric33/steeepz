@@ -1,23 +1,27 @@
 <main class="app__container">
   <header class="app__header">
     <h1><%= @workspace.name %></h1>
-    <%= link_to '#', class: "button--primary" do %>
+    <%= button_to workspace_checklists_path(@workspace), class: "button--primary" do %>
       <i class="bx bx-plus"></i>
       New checklist
     <% end %>
   </header>
   <div class="app__content">
-    <table class="ck__table">
-      <tr class="ck__header">
-        <th><div class="ck__header-col "><i class="bx bx-font-family"></i>Name</div></th>
-        <th><div class="ck__header-col "><i class='bx bx-show'></i>Status</div></th>
-        <th><div class="ck__header-col"><i class='bx bx-user'></i>Creator</div></th>
-        <th><div class="ck__header-col"><i class='bx bx-check-double'></i>Completion</div></th>
-        <th></th>
-      </tr>
-      <% @workspace.checklists.each do |checklist| %>
-        <%= render 'checklists/checklist', checklist: checklist %>
-      <% end %>
-    </table>
+    <% if @workspace.checklists.empty? %>
+      <div>You don't have checklists in this workspace.</div>
+    <% else %>
+      <table class="ck__table">
+        <tr class="ck__header">
+          <th><div class="ck__header-col "><i class="bx bx-font-family"></i>Name</div></th>
+          <th><div class="ck__header-col "><i class='bx bx-show'></i>Status</div></th>
+          <th><div class="ck__header-col"><i class='bx bx-user'></i>Creator</div></th>
+          <th><div class="ck__header-col"><i class='bx bx-check-double'></i>Completion</div></th>
+          <th></th>
+        </tr>
+        <% @workspace.checklists.each do |checklist| %>
+          <%= render 'checklists/checklist', checklist: checklist %>
+        <% end %>
+      </table>
+    <% end %>
   </div>
 </main>

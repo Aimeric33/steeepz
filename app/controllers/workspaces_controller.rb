@@ -11,7 +11,7 @@ class WorkspacesController < ApplicationController
   end
 
   def create
-    @workspace = Workspace.new(workspace_params)
+    @workspace = Workspace.new
     @workspace.owner = current_user
     authorize @workspace
 
