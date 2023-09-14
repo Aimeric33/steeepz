@@ -1,12 +1,17 @@
-<div class="checklist__section" data-id="<%= section.id %>">
+<div class="checklist__section" data-controller="editing" data-id="<%= section.id %>">
   <div class="checklist__section-header">
     <div class="checklist__section-commands">
-      <div class="checklist__section-command"><i class='bx bx-trash'></i></div>
+      <div class="checklist__section-command"
+          data-editing-target="button"
+          data-action="click->editing#delete"
+          data-id="<%= section.id %>"
+          data-route="sections">
+        <i class='bx bx-trash'></i>
+      </div>
       <div class="checklist__section-command"><i class='bx bx-move-vertical'></i></div>
     </div>
     <div class="checklist__section-header__title"
         contenteditable="true"
-        data-controller="editing"
         data-editing-target="item"
         data-action="focusout->editing#save"
         data-id="<%= section.id %>"

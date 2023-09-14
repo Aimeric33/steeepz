@@ -1,13 +1,18 @@
-<div class="checklist__step" data-id="<%= step.id %>">
+<div class="checklist__step" data-controller="editing" data-id="<%= step.id %>">
   <div class="checklist__step-commands">
-    <div class="checklist__step-command"><i class='bx bx-trash'></i></div>
+    <div class="checklist__step-command"
+        data-editing-target="button"
+        data-action="click->editing#delete"
+        data-id="<%= step.id %>"
+        data-route="steps">
+      <i class='bx bx-trash'></i>
+    </div>
     <div class="checklist__step-command"><i class='bx bx-move-vertical'></i></div>
   </div>
   <div class="checklist__step-main">
     <div class="checklist__step-main__icon"></div>
     <div class="checklist__step-main__title"
         contenteditable="true"
-        data-controller="editing"
         data-editing-target="item"
         data-action="focusout->editing#save"
         data-id="<%= step.id %>"
