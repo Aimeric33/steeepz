@@ -46,4 +46,22 @@ export default class extends Controller {
         }
       })
   }
+
+  delete() {
+    const itemId = this.buttonTarget.dataset.id
+    const route = this.buttonTarget.dataset.route
+
+    fetch(`/${route}/${itemId}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-CSRF-Token': document.querySelector('meta[name=csrf-token]').getAttribute('content')
+      }
+    })
+      .then((data) => {
+        if (data.ok) {
+          this.element.remove()
+        }
+      })
+  }
 }
