@@ -4,8 +4,5 @@
       <h2 class="ws__name"><%= workspace.name %></h2>
       <div class="ws__details">Last update on <%= workspace.updated_at.strftime("%d/%m/%Y") %>&nbsp; · &nbsp;<%= workspace.checklists.count %> checklists</div>
     </div>
-    <div class="ws__edit button--secondary">
-      <i class="bx bx-edit"></i>
-    </div>
   <% end %>
 <% end %>

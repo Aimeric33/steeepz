@@ -16,6 +16,12 @@
   margin-bottom: 1.5rem;
 }
 
+.app__header--left {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+}
+
 .app__content {
   width: 100%;
 }
