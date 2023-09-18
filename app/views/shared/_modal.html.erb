@@ -1,0 +1,14 @@
+<div data-controller="modal" data-route="<%= local_assigns[:route] %>">
+  <a href="#" data-action="modal#open">Rename</a>
+
+  <dialog data-modal-target="modal" class="modal" data-action="click->modal#clickOutside">
+    <div class="modal__title">Rename</div>
+    <form class="modal__form">
+      <input type="text" placeholder="New name" data-modal-target="input">
+      <div class="modal__buttons">
+        <button type="button" data-action="modal#close" class="button--secondary">Close</button>
+        <button type="button" class="button--primary" data-action="modal#save">Save</button>
+      </div>
+    </form>
+  </dialog>
+</div>

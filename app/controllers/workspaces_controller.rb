@@ -25,11 +25,7 @@ class WorkspacesController < ApplicationController
   def update
     authorize @workspace
 
-    if @workspace.update(workspace_params)
-      redirect_to workspace_path(@workspace)
-    else
-      render :show, status: :unprocessable_entity
-    end
+    @workspace.update(workspace_params)
   end
 
   def destroy
