@@ -1,6 +1,17 @@
 <main class="app__container">
   <header class="app__header">
-    <h1><%= @checklist.name %></h1>
+    <div class="app__header--left">
+      <h1><%= @checklist.name %></h1>
+      <div class="header__options">
+        <div data-controller="dropdown" class="relative">
+          <button type="button" data-action="dropdown#toggle click@window->dropdown#hide" class="dropdown__button"><i class='bx bx-cog'></i></button>
+          <div data-dropdown-target="menu" class="hidden dropdown__list">
+            <%= render "shared/modal", route: "/checklists/#{@checklist.id}" %>
+            <%= link_to 'Delete', checklist_path(@checklist), data: {turbo_method: :delete, action: "dropdown#toggle" } %>
+          </div>
+        </div>
+      </div>
+    </div>
     <%= link_to edit_checklist_path(@checklist), class: "button--primary" do %>
       <i class="bx bx-edit"></i>
       Edit
