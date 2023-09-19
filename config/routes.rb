@@ -15,4 +15,8 @@ Rails.application.routes.draw do
   end
 
   resources :steps, only: %i[update destroy]
+
+  namespace :share do
+    resources :checklists, only: %i[show]
+  end
 end
