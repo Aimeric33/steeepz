@@ -1,0 +1,44 @@
+<main>
+  <div class="checklist">
+
+    <div class="checklist__header">
+      <div class="checklist__name">
+        <%= @checklist.name %>
+      </div>
+      <div class="checklist__dates">
+        <div class="checklist__date">
+          <i class="bx bx-play-circle"></i>
+          <div>
+            Start on : <%= @checklist.start_date.strftime('%d/%m/%Y') if @checklist.start_date %>
+          </div>
+        </div>
+        <div class="checklist__date">
+          <i class="bx bx-stop-circle"></i>
+          <div>
+            Target on : <%= @checklist.estimated_end_date.strftime('%d/%m/%Y') if @checklist.estimated_end_date %>
+          </div>
+        </div>
+      </div>
+      <div class="checklist__description">
+        <%= @checklist.description %>
+      </div>
+    </div>
+
+    <div class="checklist__content">
+      <div class="checklist__sections">
+        <% @checklist.sections.order(position: :asc).each do |section| %>
+          <div class="checklist__section">
+            <div class="checklist__section-header">
+              <div class="checklist__section-header__title">
+                <%= section.title %>
+              </div>
+              <div class="checklist__section-header__count">
+                0 / <%= section.steps.count %> steps
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</main>
