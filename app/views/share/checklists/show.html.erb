@@ -1,4 +1,4 @@
-<main>
+<main class="share__container">
   <div class="checklist">
 
     <div class="checklist__header">
@@ -27,14 +27,32 @@
     <div class="checklist__content">
       <div class="checklist__sections">
         <% @checklist.sections.order(position: :asc).each do |section| %>
-          <div class="checklist__section">
+          <div class="checklist__section" data-controller="checked-counter">
             <div class="checklist__section-header">
               <div class="checklist__section-header__title">
                 <%= section.title %>
               </div>
               <div class="checklist__section-header__count">
-                0 / <%= section.steps.count %> steps
+                <span data-checked-counter-target="total">0</span> / <%= section.steps.count %> steps
               </div>
+            </div>
+
+            <div class="checklist__steps">
+              <% section.steps.order(position: :asc).each do |step| %>
+                <div class="checklist__step">
+                  <div class="step-checkbox">
+                    <label for="step-<%= step.id %>" class="item" data-action="click->checked-counter#update">
+                      <input type="checkbox" id="step-<%= step.id %>" data-checked-counter-target="input">
+                      <label for="step-<%= step.id %>" class="cbx">
+                        <svg width="14px" height="12px" viewBox="0 0 14 12">
+                          <polyline points="1 7.6 5 11 13 1"></polyline>
+                        </svg>
+                      </label>
+                      <label for="step-<%= step.id %>" class="cbx-lbl"><%= step.title %></label>
+                    </label>
+                  </div>
+                </div>
+              <% end %>
             </div>
           </div>
         <% end %>
